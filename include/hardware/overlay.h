@@ -87,6 +87,8 @@ enum {
     /* overlay data setting */
     OVERLAY_BUFNUM = 128,
     OVERLAY_MODE,
+    /* usage of overlay: playback a stream or not */
+    OVERLAY_FOR_PLAYBACK ,
 };
 
 /* enable/disable value setParameter() */
