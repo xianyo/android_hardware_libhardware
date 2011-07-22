@@ -89,6 +89,8 @@ enum {
     OVERLAY_MODE,
     /* usage of overlay: playback a stream or not */
     OVERLAY_FOR_PLAYBACK ,
+    /* set the overlay visiable or not */
+    OVERLAY_VISIBLE,
 };
 
 /* enable/disable value setParameter() */
