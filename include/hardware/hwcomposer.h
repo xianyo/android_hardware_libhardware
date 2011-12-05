@@ -36,6 +36,7 @@ __BEGIN_DECLS
  * The id of this module
  */
 #define HWC_HARDWARE_MODULE_ID "hwcomposer"
+#define HWC_VIV_HARDWARE_MODULE_ID "hwcomposer_viv"
 
 /**
  * Name of the sensors device to open
