@@ -107,7 +107,10 @@ enum {
     HWC_BLENDING_PREMULT  = 0x0105,
 
     /* SRC_ALPHA / ONE_MINUS_SRC_ALPHA */
-    HWC_BLENDING_COVERAGE = 0x0405
+    HWC_BLENDING_COVERAGE = 0x0405,
+
+    /* DIM */
+    HWC_BLENDING_DIM      = 0x0805
 };
 
 /*
@@ -161,6 +164,7 @@ typedef struct hwc_layer {
     uint32_t transform;
 
     /* blending to apply during composition */
+    /* Higher 16 bit for alpha value, lower 16 bit for blending mode. */
     int32_t blending;
 
     /* area of the source to consider, the origin is the top-left corner of
