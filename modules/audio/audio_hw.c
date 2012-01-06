@@ -220,6 +220,10 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
     if (!out)
         return -ENOMEM;
 
+    *channels    = AUDIO_CHANNEL_OUT_STEREO;
+    *sample_rate = 44100;
+    *format      = AUDIO_FORMAT_PCM_16_BIT;
+
     out->stream.common.get_sample_rate = out_get_sample_rate;
     out->stream.common.set_sample_rate = out_set_sample_rate;
     out->stream.common.get_buffer_size = out_get_buffer_size;
