@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* Copyright 2010-2011 Freescale Semiconductor Inc. */
+/* Copyright (C) 2012 Freescale Semiconductor, Inc. */
 
 #ifndef ANDROID_FB_INTERFACE_H
 #define ANDROID_FB_INTERFACE_H
@@ -29,6 +29,7 @@
 __BEGIN_DECLS
 
 #define GRALLOC_HARDWARE_FB0 "fb0"
+#define GRALLOC_HARDWARE_FB "fb"
 
 /*****************************************************************************/
 
@@ -155,6 +156,11 @@ typedef struct framebuffer_device_t {
 
 
 /** convenience API for opening and closing a supported device */
+static inline int framebuffer_open_ext(const struct hw_module_t* module,
+        struct framebuffer_device_t** device) {
+    return module->methods->open(module,
+            GRALLOC_HARDWARE_FB, (struct hw_device_t**)device);
+}
 
 static inline int framebuffer_open(const struct hw_module_t* module,
         struct framebuffer_device_t** device) {
