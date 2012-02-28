@@ -105,8 +105,10 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
                          size_t bytes)
 {
     /* XXX: fake timing for audio output */
-    usleep(bytes * 1000000 / audio_stream_frame_size(&stream->common) /
-           out_get_sample_rate(&stream->common));
+    long time = bytes * 1000000 / audio_stream_frame_size(&stream->common) /
+           out_get_sample_rate(&stream->common);
+    //round the audio time by 10ms and 10ms schedule time
+    usleep(time/10000*10000-10000);
     return bytes;
 }
 
@@ -186,9 +188,13 @@ static int in_set_gain(struct audio_stream_in *stream, float gain)
 static ssize_t in_read(struct audio_stream_in *stream, void* buffer,
                        size_t bytes)
 {
+    long time = bytes * 1000000 / audio_stream_frame_size(&stream->common) /
+           in_get_sample_rate(&stream->common);
     /* XXX: fake timing for audio input */
-    usleep(bytes * 1000000 / audio_stream_frame_size(&stream->common) /
-           in_get_sample_rate(&stream->common));
+    //usleep(bytes * 1000000 / audio_stream_frame_size(&stream->common) /
+    //       in_get_sample_rate(&stream->common));
+    //round it to 10ms and add 10ms scheduel time
+    usleep(time/10000*10000 - 10000);
     return bytes;
 }
 
