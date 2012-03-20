@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* Copyright 2010-2012 Freescale Semiconductor Inc. */
 
 #include <sys/mman.h>
 
@@ -313,6 +314,7 @@ int fb_device_open(hw_module_t const* module, const char* name,
     int status = -EINVAL;
     if (!strcmp(name, GRALLOC_HARDWARE_FB0)) {
         alloc_device_t* gralloc_device;
+        framebuffer_device_t *fbdev;
         status = gralloc_open(module, &gralloc_device);
         if (status < 0)
             return status;
@@ -348,6 +350,8 @@ int fb_device_open(hw_module_t const* module, const char* name,
             const_cast<int&>(dev->device.minSwapInterval) = 1;
             const_cast<int&>(dev->device.maxSwapInterval) = 1;
             *device = &dev->device.common;
+            fbdev = (framebuffer_device_t*) *device;
+            fbdev->reserved[0] = NUM_BUFFERS;
         }
     }
     return status;

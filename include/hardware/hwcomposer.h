@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/*Copyright 2009-2011 Freescale Semiconductor, Inc. All Rights Reserved.*/
+/*Copyright 2009-2012 Freescale Semiconductor, Inc. All Rights Reserved.*/
 
 #ifndef ANDROID_INCLUDE_HARDWARE_HWCOMPOSER_H
 #define ANDROID_INCLUDE_HARDWARE_HWCOMPOSER_H
@@ -83,6 +83,11 @@ enum {
      * by SurfaceFlinger (just as if compositionType was set to HWC_OVERLAY).
      */
     HWC_SKIP_LAYER = 0x00000001,
+
+    /*
+    * HWC_DRAW_HOLE is to indicate a 'CLEAR HOLE'with Hwcompser.
+    */
+    HWC_DRAW_HOLE = 0x00000002,
 };
 
 /*
