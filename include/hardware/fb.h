@@ -142,7 +142,7 @@ typedef struct framebuffer_device_t {
      */
     int (*enableScreen)(struct framebuffer_device_t* dev, int enable);
 
-#ifdef SECOND_DISPLAY_SUPPORT
+#ifdef FSL_IMX_DISPLAY
     /*
      * This is used to set the rotation for second display in dual disp
      */
