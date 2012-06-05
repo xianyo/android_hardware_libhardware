@@ -41,7 +41,7 @@ enum DISPLAY_OPERATE_CODE {
 
 struct configParam {
     configParam() : displayId(-1), operateCode(OPERATE_CODE_INVALIDE),
-      rotation(0), overScan(0), mirror(0), colorDepth(0), mode()
+      rotation(0), xOverScan(0), yOverScan(0), mirror(0), colorDepth(0), mode()
     {
     }
 
@@ -49,10 +49,9 @@ struct configParam {
     status_t read(const Parcel& input);
     int displayId;
     int operateCode; //operate code: enable, change or disable display.
-    //int width;
-    //int height;
     int rotation;
-    int overScan;
+    int xOverScan;
+    int yOverScan;
     int mirror;
     int colorDepth;
     String16 mode;
