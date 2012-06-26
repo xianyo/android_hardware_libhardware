@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2012 Freescale Semiconductor, Inc. All Rights Reserved.
+* Copyright (C) 2012 Freescale Semiconductor, Inc.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -23,6 +23,12 @@
 #include <utils/Errors.h>
 #include <utils/String16.h>
 
+
+#define FSL_SETTINGS_PREFERENCE "data/data/com.android.settings/shared_prefs/com.android.settings_preferences.xml"
+#define FSL_PREFERENCE_KEEPRATE "display_keeprate_0"
+#define FSL_PREFERENCE_MODE "display_mode_0"
+#define FSL_PREFERENCE_COLORDEPTH "display_colordepth_0"
+
 //namespace android {
 using namespace android;
 
@@ -37,11 +43,19 @@ enum DISPLAY_OPERATE_CODE {
     OPERATE_CODE_CHANGE_MIRROR = 0x4,
     OPERATE_CODE_CHANGE_COLORDEPTH = 0x8,
     OPERATE_CODE_CHANGE_ROTATION = 0x10,
+    OPERATE_CODE_CHANGE_KEEPRATE = 0x20
+};
+
+enum DISPLAY_SETTING_MODE {
+    SETTING_MODE_FULL_SCREEN = 0x1000,
+    SETTING_MODE_KEEP_PRIMARY_RATE = 0x2000,
+    SETTING_MODE_KEEP_16_9_RATE = 0x4000,
+    SETTING_MODE_KEEP_4_3_RATE = 0x8000
 };
 
 struct configParam {
     configParam() : displayId(-1), operateCode(OPERATE_CODE_INVALIDE),
-      rotation(0), xOverScan(0), yOverScan(0), mirror(0), colorDepth(0), mode()
+      rotation(0), xOverScan(0), yOverScan(0), mirror(0), colorDepth(0), keepRate(SETTING_MODE_FULL_SCREEN), mode()
     {
     }
 
@@ -54,6 +68,7 @@ struct configParam {
     int yOverScan;
     int mirror;
     int colorDepth;
+    int keepRate;
     String16 mode;
 };
 
