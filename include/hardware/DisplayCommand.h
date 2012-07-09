@@ -28,6 +28,7 @@
 #define FSL_PREFERENCE_KEEPRATE "display_keeprate_0"
 #define FSL_PREFERENCE_MODE "display_mode_0"
 #define FSL_PREFERENCE_COLORDEPTH "display_colordepth_0"
+#define FSL_PREFERENCE_MODE_DEFAULT "keepHighestMode"
 
 //namespace android {
 using namespace android;
