@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/*Copyright 2009-2011 Freescale Semiconductor, Inc. All Rights Reserved.*/
+/*Copyright 2009-2012 Freescale Semiconductor, Inc. All Rights Reserved.*/
 
 #ifndef ANDROID_GRALLOC_INTERFACE_H
 #define ANDROID_GRALLOC_INTERFACE_H
@@ -98,6 +98,9 @@ enum {
 		GRALLOC_USAGE_HWC_DISP1 = 0x01000000,          //Specify the output is DISP1
 		GRALLOC_USAGE_HWC_DISP2 = 0x02000000,          //Specify the output is DISP2
 		GRALLOC_USAGE_HWC_DISP3 = 0x04000000,          //Specify the output is DISP3
+
+    /* Indicate the buffer will be physical continue, some hw such as vpu need this kind of memory as it does not has mmu */
+    GRALLOC_USAGE_FORCE_CONTIGUOUS = 0x08000000,
 
     /* Must have a hardware-protected path to external display sink for
      * this buffer.  If a hardware-protected path is not available, then
