@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+/*Copyright 2009-2012 Freescale Semiconductor, Inc.*/
 
 #ifndef ANDROID_GRALLOC_INTERFACE_H
 #define ANDROID_GRALLOC_INTERFACE_H
@@ -137,6 +138,9 @@ enum {
      * allocation. Any flags not in this mask do not need to be handled by
      * gralloc modules. */
     GRALLOC_USAGE_ALLOC_MASK            = ~(GRALLOC_USAGE_FOREIGN_BUFFERS),
+
+    /* Indicate the buffer will be physical continue, some hw such as vpu need this kind of memory as it does not has mmu */
+    GRALLOC_USAGE_FORCE_CONTIGUOUS = 0x08000000,
 
     /* implementation-specific private usage flags */
     GRALLOC_USAGE_PRIVATE_0             = 0x10000000,
