@@ -95,6 +95,7 @@ enum {
     GRALLOC_USAGE_HW_COMPOSER           = 0x00000800,
     /* buffer will be used with the framebuffer device */
     GRALLOC_USAGE_HW_FB                 = 0x00001000,
+    GRALLOC_USAGE_HW_FBX                = 0x00002000,
 
     /* buffer should be displayed full-screen on an external display when
      * possible */
