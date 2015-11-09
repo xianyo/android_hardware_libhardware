@@ -196,6 +196,8 @@ enum {
     /* Indicates which of the vendor-defined color transforms is provided by
      * this configuration. */
     HWC_DISPLAY_COLOR_TRANSFORM             = 6,
+
+    HWC_DISPLAY_FORMAT                      = 7,
 };
 
 /* Allowed events for hwc_methods::eventControl() */
